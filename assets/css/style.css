@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.otf) format('opentype');
+}
+
+html {
+    height: 100%;
+}
+  
+body {
+    background: url(../images/playMat.jpg);
+    background-size: cover;
+    background-position: center;
+}
+  
+#heading {
+    background: black;
+    color: red;
+    text-align: center;
+    font-family: 'Noto Sans Japanese';
+}
+  
+
+h2 {
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-emphasis: bold;
+}
+  
+#start,
+#enemies,
+#defender {
+    display: flex;
+}
+  
+  
+#blackLuster,
+#darkMagician,
+#relinquished,
+#blueEyesWhiteDragon {
+    background: black;
+    text-align: center;
+    border: white 2px solid;
+    width: 25%;
+}
+  
+#message {
+    background-color: black;
+    color: white;
+    font-family: 'Noto Sans Japanese';
+}
