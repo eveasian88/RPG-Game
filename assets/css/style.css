@@ -3,7 +3,7 @@ html {
 }
   
 body {
-    background-image: url(../images/fantasyWorld.jpg)
+    background-image: url("../images/middleEarth.svg")
     /* background-size: cover;
     background-position: center;
     background-color: black; */
@@ -22,7 +22,12 @@ h4 {
     -webkit-text-stroke: 1px black;
     text-emphasis: bold;
 }
-  
+ 
+img {
+    height: 250px;
+    width: 250px;
+}
+
 #start,
 #enemies,
 #defender {
@@ -30,13 +35,13 @@ h4 {
 }
   
   
-#gandalf,
-#legolas,
-#saruman,
-#azog {
-    background: black;
+#legoGandalf,
+#legoLegolas,
+#legoSaruman,
+#legoAzog {
+    /* background: black; */
     text-align: center;
-    border: white 2px solid;
+    /* border: white 2px solid; */
     width: 25%;
 }
   

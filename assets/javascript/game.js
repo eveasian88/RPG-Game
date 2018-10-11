@@ -34,7 +34,7 @@ $(document).ready(function() {
             'background-color': 'black',
             'border-color': 'white',
             'border-width': '1px',
-            padding: '2px'
+            // padding: '2px'
           });
         });
 
@@ -181,7 +181,7 @@ $(document).ready(function() {
   // function to restart game
   $(document).on('click', '#restart', function() {
     $('.container').html(
-      '<h2>Rules: 1) select character 2) select defender 3) Attack! 4) Repeat 2 and 3</h2><div id="start"><div id="blackLuster">Darth Vader<br><img class="img-thumbnail" src="assets/images/blackLuster.jpg" alt=""><br><p id="blackLusterValue">120</p></div><div id="darkMagician">Han Solo<br><img class="img-thumbnail" src="assets/images/darkMagician.jpg" alt=""><br><p id="blackLusterValue">100</p></div><div id="relinquished">relinquished<br><img class="img-thumbnail" src="assets/images/relinquished.jpg" alt=""><br><p id="blackLusterValue">150</p></div><div id="blueEyesWhiteDragon">blueEyesWhiteDragon<br><img class="img-thumbnail" src="assets/images/blueEyesWhiteDragon.jpg" alt=""><br><p id="darthVaderValue">180</p></div></div><h2>Your character</h2><div id="character"></div><h2>Enemies Available To Attack</h2><div id="enemies"></div><h2>Fight Section</h2><button id="attack">Attack</button><div id="message"></div><h2>Defender</h2><div id="defender"></div>'
+      '<h2>Rules: 1) select character 2) select defender 3) attack! 4) repeat 2 and 3</h2><div id="start"><div id="legoGandalf">Gandalf<br><img class="img-thumbnail" src="assets/images/legoGandalf.jpg" alt=""><br><p id="legoGandalfValue">120</p></div><div id="legoLegolas">Legolas<br><img class="img-thumbnail" src="assets/images/legoLegolas.jpg" alt=""><br><p id="legoLegalasValue">100</p></div><div id="legoSaruman">Saruman<br><img class="img-thumbnail" src="assets/images/legoSaruman.jpg" alt=""><br><p id="legoSarumanValue">150</p></div><div id="legoAzog">Azog<br><img class="img-thumbnail" src="assets/images/legoAzog.jpg" alt=""><br><p id="legoAzogValue">180</p></div></div><h2>Your character</h2><div id="character"></div><h2>Enemies Available To Attack</h2><div id="enemies"></div><h2>Fight Section</h2><button id="attack">Attack</button><div id="message"></div><h2>Defender</h2><div id="defender"></div>'
     );
     reset();
   });
