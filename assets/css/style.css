@@ -3,30 +3,23 @@ html {
 }
   
 body {
-    background-image: url("../images/middleEarth.svg")
-    /* background-size: cover;
-    background-position: center;
-    background-color: black; */
-}
-  
-#heading {
-    background: black;
-    color: red;
-    text-align: center;
-    font-family: 'Noto Sans Japanese';
+    background-image: url("../images/middleEarth.jpg")
 }
   
 
 h4 {
-    color: white;
+    color: goldenrod;
     -webkit-text-stroke: 1px black;
     text-emphasis: bold;
 }
  
-img {
-    height: 250px;
-    width: 250px;
+.img-thumbnail,
+.src {
+    background-image: url('../images/middleEarth.jpg');
+    background-color: black;
+    background-blend-mode: screen;
 }
+
 
 #start,
 #enemies,
