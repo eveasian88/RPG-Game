@@ -1,21 +1,12 @@
-@font-face {
-    font-family: 'Noto Sans Japanese';
-    font-style: normal;
-    font-weight: 100;
-    src: url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.woff2) format('woff2'),
-         url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.woff) format('woff'),
-         url(//fonts.gstatic.com/ea/notosansjapanese/v5/NotoSansJP-Thin.otf) format('opentype');
-}
-
 html {
     height: 100%;
 }
   
 body {
-    background: url(../images/playMat.jpg);
-    background-size: cover;
+    background-image: url(../images/fantasyWorld.jpg)
+    /* background-size: cover;
     background-position: center;
-    /* background-color: black; */
+    background-color: black; */
 }
   
 #heading {
@@ -26,7 +17,7 @@ body {
 }
   
 
-h3 {
+h4 {
     color: white;
     -webkit-text-stroke: 1px black;
     text-emphasis: bold;
@@ -39,10 +30,10 @@ h3 {
 }
   
   
-#blackLuster,
-#darkMagician,
-#relinquished,
-#blueEyesWhiteDragon {
+#gandalf,
+#legolas,
+#saruman,
+#azog {
     background: black;
     text-align: center;
     border: white 2px solid;

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // function for selecting initial character
     function selectCharacter(characterHP, characterName, ap) {
-      $('#darthVader, #darkMagician, #relinquished, #blueEyesWhiteDragon').on('click', function(event) {
+      $('#legoGandalf, #legoLegolas, #legoSaruman, #legoAzog').on('click', function(event) {
         // remove characters from the start div upon character selection
         $('#start').empty();
   
@@ -156,23 +156,23 @@ $(document).ready(function() {
   // function to play the game 1) display chosen characters 2) attack defenders
   function reset() {
     var characterHP = {
-      blackLuster: 120,
-      darkMagician: 100,
-      relinquished: 150,
-      blueEyesWhiteDragon: 180
+      legoGandalf: 120,
+      legoLegolas: 100,
+      legoSaruman: 150,
+      legoAzog: 180
     };
     var characterName = {
-      blackLuster: 'Black Luster',
-      darkMagician: 'Dark Magician',
-      relinquished: 'Relinquished',
-      blueEyesWhiteDragon: 'Blue-Eyes White Dragon'
+      legoAandalf: 'Gandalf',
+      legoLegolas: 'Legolas',
+      legoSaruman: 'Saruman',
+      legoAzog: 'Azog'
     };
     // Counter Attack Points
     var ap = {
-      blackLuster: 8,
-      darkMagician: 5,
-      relinquished: 20,
-      blueEyesWhiteDragon: 25
+      legoGandalf: 8,
+      legoLegolas: 5,
+      legoSaruman: 20,
+      legoAzog: 25
     };
     selectCharacter(characterHP, characterName, ap);
     attack(characterHP, characterName, ap);
