@@ -10,8 +10,9 @@ $(document).ready(function () {
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/gandalf.jpg",
       "fighterImgUrl": "assets/images/gandalf-fig.gif",
-      "defenderImgUrl": "assets/images/gandalf-def.gif"
+      // "defenderImgUrl": "assets/images/gandalf-def.gif"
     },
+
     "legolas": {
       "name": "legolas",
       "health": 200,
@@ -19,8 +20,9 @@ $(document).ready(function () {
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/legolas.jpg",
       "fighterImgUrl": "assets/images/legolas-fig.gif",
-      "defenderImgUrl" "assets/images/legolas-def.gif",
+      // "defenderImgUrl": "assets/images/legolas-def.gif"
     },
+
     "saruman": {
       "name": "saruman",
       "health": 200,
@@ -28,8 +30,9 @@ $(document).ready(function () {
       "enemyAttackBack": 10,
       "imageUrl": "assets/images/saruman.jpg",
       "fighterImgUrl": "assets/images/saruman-fig.gif",
-      "defenderImgUrl" "assets/images/saruman-def.gif"
+      // "defenderImgUrl": "assets/images/saruman-def.gif"
     },
+
     "azog": {
       "name": "azog",
       "health": 200,
@@ -37,7 +40,7 @@ $(document).ready(function () {
       "enemyAttackBack": 5,
       "imageUrl": "assets/images/azog.jpg",
       "fighterImgUrl": "assets/images/azog-fig.gif"
-      "defenderImgUrl": "assets/images/azog-def.gif"
+      // "defenderImgUrl": "assets/images/azog-def.gif"
     }
   };
 
@@ -83,6 +86,7 @@ $(document).ready(function () {
         if (percentage > 0) {
 
           $(this).animate({ 'width': '' + percentage + '%' }, 'slow');
+
           console.log(character.name + "   Health : " + percentage);
 
         } else {
@@ -97,15 +101,17 @@ $(document).ready(function () {
 
     var charHealth = $("<div class='character-health'>").text(character.health);
     var powerBarDiv = $(powerBarHolder).append(powerBar);
-    // put all the elements together into the character div.
+
+    // put all the elements together into the character div
     charDiv.append(charName).append(charImage).append(charHealth).append(powerBarDiv);
     $(renderArea).append(charDiv);
     // capitalizes the first letter in characters name
-    $('.character-name').css('textTransform', 'capitalize');
+    $('.character-name').css('textTransform', 'capitalize'); // not capitalizing first letter
 
     if (makeChar == 'enemy') {
       $(charDiv).addClass('enemy');
-    } else if (makeChar == 'defender') {
+    }
+    else if (makeChar == 'defender') {
       currDefender = character;
       $(charDiv).addClass('target-enemy');
     }
@@ -151,9 +157,9 @@ $(document).ready(function () {
       }
       // render one enemy to defender area
       $(document).on('click', '.enemy', function () {
-        //select an combatant to fight
+        // select a combatant to fight
         name = ($(this).data('name'));
-        //if defernder area is empty
+        // if defernder area is empty
         if ($('#defender').children().length === 0) {
           printCharacters(name, '#defender');
 
@@ -167,7 +173,7 @@ $(document).ready(function () {
       $(areaRender).empty();
 
       for (var i = 0; i < nextEnemy.length; i++) {
-        //add enemy to defender area
+        // add enemy to defender area
         if (nextEnemy[i].name == charObj) {
           $('#defender').append("Defender")
           printAllinOne(nextEnemy[i], areaRender, 'defender');
@@ -179,6 +185,7 @@ $(document).ready(function () {
       $('#defender').empty();
       $('#defender').append("Defender")
       printAllinOne(charObj, '#defender', 'defender');
+      // if time add audio here
     }
     // re-render player character when attacked
     if (areaRender == 'enemyDamage') {
@@ -189,7 +196,7 @@ $(document).ready(function () {
     // render defeated enemy
     if (areaRender == 'enemyDefeated') {
       $('#defender').empty();
-      var gameStateMessage = "You have defated " + charObj.name + ", you can choose to fight another enemy.";
+      var gameStateMessage = "You have defeated " + charObj.name + ", Choose to fight another enemy.";
       printMessage(gameStateMessage);
     }
   };
@@ -261,13 +268,12 @@ $(document).ready(function () {
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
           restartGame("You have been defeated...GAME OVER!!!");
-      
+
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");
-
-
         }
-      } else {
+      }
+      else {
         printCharacters(currDefender, 'enemyDefeated');
         killCount++;
         if (killCount >= 3) {
@@ -281,7 +287,7 @@ $(document).ready(function () {
     } else {
       printMessage("clearMessage");
       printMessage("No enemy here.");
-
+      // audio to be put here 
     }
   });
 
