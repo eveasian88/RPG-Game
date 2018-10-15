@@ -53,6 +53,9 @@ $(document).ready(function () {
   var turnCounter = 1;
   var killCount = 0;
 
+  // define audio clips here
+  var background = new Audio('') // record a sound clip from movie
+  
 
   function printAllinOne(character, renderArea, makeChar) {
     // character: obj, renderArea: class/id, makeChar: string
@@ -72,13 +75,13 @@ $(document).ready(function () {
 
         } else {
 
-          $(this).css({ 'color': 'white', 'background': 'none' }, 'slow');
+          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
           console.log(character.name + "   Health : " + percentage);
         }
       });
 
     } else if (renderArea == '#defender') {
-      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl);
+      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl); // check why defender isnt showing up
       var powerBarHolder = $("<div class='power-bar-holder'>");
       var powerBar = $("<div class='power-bar' id='bar2'>").each(function () {
 
@@ -91,7 +94,7 @@ $(document).ready(function () {
 
         } else {
           console.log(character.name + "   Health : " + percentage);
-          $(this).css({ 'color': 'white', 'background': 'none' }, 'slow');
+          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
         }
       });
 
@@ -107,7 +110,7 @@ $(document).ready(function () {
     $(renderArea).append(charDiv);
 
     // capitalizes the first letter in characters name
-    $('.character-name').css('textTransform', 'capitalize'); // problem here, not capitalizing first letter
+    $('.character-name').css('textTransform', 'capitalize');
 
     if (makeChar == 'enemy') {
       $(charDiv).addClass('enemy');
@@ -178,6 +181,7 @@ $(document).ready(function () {
         if (nextEnemy[i].name == charObj) {
           $('#defender').append("Defender")
           printAllinOne(nextEnemy[i], areaRender, 'defender');
+          // playerSound.play(): // defined audio above, is placed here
         }
       }
     }
@@ -197,7 +201,7 @@ $(document).ready(function () {
     // render defeated enemy
     if (areaRender == 'enemyDefeated') {
       $('#defender').empty();
-      var gameStateMessage = "You have defeated " + charObj.name + ", Choose to fight another enemy.";
+      var gameStateMessage = "you have defeated " + charObj.name + ", choose another enemy to fight.";
       printMessage(gameStateMessage);
     }
   };
@@ -207,8 +211,8 @@ $(document).ready(function () {
     // when 'restart' button is clicked, reloads the page.
     var restart = $('<button class="btn btn-danger">Restart</button>').click(function () {
       location.reload();
-
     });
+
     var gameState = $("<div>").text(inputEndGame);
     $("#gameMessage").append(gameState);
     $("#gameMessage").after(restart);
@@ -219,6 +223,8 @@ $(document).ready(function () {
   // main program
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
+  // play background music
+  background.play();
 
   $(document).on('click', '.character', function () {
     name = $(this).data('name');
@@ -239,6 +245,7 @@ $(document).ready(function () {
       printCharacters(currFighter, '#fighter');
       // this is to render all characters for user to choose to fight against
       printCharacters(nextEnemy, '#nextEnemy-section');
+      // add audio here if time
     }
   });
 
@@ -248,7 +255,7 @@ $(document).ready(function () {
     // if defender area has enemy
     if ($('#defender').children().length !== 0) {
       // defender state change
-      var attackMessage = "You attacked " + currDefender.name + " for " + (currFighter.attack * turnCounter) + " damage.";
+      var attackMessage = "you attacked " + currDefender.name + " for " + (currFighter.attack * turnCounter) + " damage.";
       printMessage("clearMessage");
 
       // calculate the health points for defender
@@ -268,18 +275,19 @@ $(document).ready(function () {
         printCharacters(currFighter, 'enemyDamage');
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
-          restartGame("You have been defeated!!! GAME OVER!!!");
-
+          restartGame("you have been defeated!!! GAME OVER!!!");
+          // gameOver.play(); // add audio if time
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");
         }
       }
+
       else {
         printCharacters(currDefender, 'enemyDefeated');
         killCount++;
         if (killCount >= 3) {
           printMessage("clearMessage");
-          restartGame("You Won!!! GAME OVER!!!");
+          restartGame("you won!!! GAME OVER!!!");
 
           $('#nextEnemy-section').text(" ");
         }
@@ -287,7 +295,7 @@ $(document).ready(function () {
       turnCounter++;
     } else {
       printMessage("clearMessage");
-      printMessage("No enemy here.");
+      printMessage("there's no enemy here.");
       // audio to be put here 
     }
   });
