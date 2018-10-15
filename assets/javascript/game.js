@@ -257,7 +257,7 @@ $(document).ready(function () {
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
           restartGame("You have been defeated...GAME OVER!!!");
-          gameOver.play();
+      
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");
 
@@ -268,7 +268,7 @@ $(document).ready(function () {
         killCount++;
         if (killCount >= 3) {
           printMessage("clearMessage");
-          restartGame("You Won!!!! GAME OVER!!!");
+          restartGame("You Won!!! GAME OVER!!!");
 
           $('#nextEnemy-section').text(" ");
         }
