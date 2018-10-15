@@ -48,7 +48,7 @@ var killCount = 0;
 
 
 function  printAllinOne(character, renderArea, makeChar) {
-  //character: obj, renderArea: class/id, makeChar: string
+  // character: obj, renderArea: class/id, makeChar: string
   var charDiv = $("<div class='character' data-name='" + character.name + "'>");
   var charName = $("<div class='character-name'>").text(character.name);
   if (renderArea == '#fighter') {
@@ -107,6 +107,27 @@ function  printAllinOne(character, renderArea, makeChar) {
   }
 };
 
+// create function to render game message to DOM
+function printMessage(message) {
+  var gameMesageSet = $("#gameMessage");
+  var newMessage = $("<div>").text(message);
+  gameMesageSet.append(newMessage);
+
+  if (message == 'clearMessage') {
+    gameMesageSet.text('');
+  }
+};
+
+function printCharacters(charObj, areaRender) {
+  // render all characters on the first page
+  if (areaRender == '#characters-section') {
+    $(areaRender).empty();
+
+    // for ....in statement iterates over the enumerable properties of character array
+    for (var property in charObj) {
+      printAllinOne(charObj[property], areaRender, '');
+    }
+  }
 
 
 }); // end closing brackets from top
