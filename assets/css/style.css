@@ -13,6 +13,11 @@ header {
     padding: 20px;
 }
 
+.src {
+    height: 200px;
+    width: 200px;
+}
+
 .characterWrapper {
     width: 75%;
     margin-right: auto;
@@ -38,7 +43,6 @@ header {
   
  
 /* character rendering */
- 
 .character {
     width: 200px;
 /* 
@@ -70,7 +74,6 @@ header {
   
   
 /* fighting */
-  
 #fight-section {
     visibility: hidden;
 }
@@ -122,7 +125,6 @@ header {
   
 
 /* available next enemy*/
-
 #nextEnemy-section img {
     /* just small enought to fit on main screen, DO NOT change */
     height: 100px;
@@ -130,7 +132,6 @@ header {
   
  
 /*  defender */
-
 #defender-name {
     text-align: center;
 }
@@ -146,7 +147,6 @@ header {
   
 
 /* power Bar */
-
 .power-bar-holder{
     width: 100%;
     border: 1px solid #ccc;
@@ -169,24 +169,32 @@ header {
     border-radius: 4px;
 }
   
-/* media queries  */
 
+/* media queries so people can play on phones, etc... */
 @media only screen and (max-device-width: 768px) {
+    .src {
+        height: 150px;
+        width: 150px;
+    }
     .character {
-    display: block;
-    height: 150px;    
+        display: block;
+        height: 150px;    
     }
     #gameMessage {
-    font-size: 10px;
+        font-size: 10px;
     }
   }
-  */
   
-  /* responsive font */
-  /* xs < 768 */ 
-  @media screen and (max-width: 767px) { 
+  
+/* responsive font */
+/* xs < 768 */ 
+@media screen and (max-width: 767px) { 
     body { font-size: 0.7em; }
     
+    .src {
+        height: 10px;
+        width: 10px;
+    }
     #gameMessage {
       font-size: 0.7em;
       }
@@ -196,5 +204,55 @@ header {
       font-size: 0.7em;
       }
   
+
+/* sm */ 
+@media screen and (min-width: 768px) { 
+    body { font-size: 0.8em; } 
+    .src {
+        height: 30px;
+        width: 30px;
+    }
+    #gameMessage {
+      font-size: 0.7em;
+      }
+  
+    #character-name,
+    #defender-name
+     {
+       font-size: 0.8em;
+      }
   } 
   
+/* md */ 
+@media screen and (min-width: 992px) { 
+    body { font-size: 0.9em; } 
+    .src {
+        height: 40px;
+        width: 40px;
+    }
+    #gameMessage {
+      font-size: 0.8em;
+      }
+  
+      #character-name,
+      #defender-name {
+        font-size: 0.9em;
+       }
+  
+} 
+  
+/* lg */ 
+@media screen and (min-width: 1200px) { 
+    body { font-size: 1em; } 
+    .src {
+        height: 80px;
+        width: 80px;
+    }
+    #gameMessage {
+      font-size: 0.9em;
+      }
+      #character-name,
+      #defender-name {
+        font-size: 1em;
+       }
+  }
