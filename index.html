@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>LOTR RPG Game</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+  <!-- bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -17,57 +18,51 @@
 
   <header>
     <div class="row col-12 justify-content-center">
-        <img class="col-xs-10 col-sm-5 col-md-4 col-lg-3 img-fluid rounded" src ="./assets/images/LOTR.png">
+      <img class="col-xs-10 col-sm-5 col-md-4 col-lg-3 img-fluid rounded" src="assets/images/LOTR.png">
     </div>
-  </header>
 
-  <div class="container">
-    <h4>RPG Game Rules: 1) select character 2) select defender 3) attack! 4) repeat step 2 and 3</p>
-    <div id="start">
-      <div id="legoGandalf">
-        Gandalf
-        <br>
-        <img class='img-thumbnail' src="./assets/images/legoGandalf.jpg" alt="Gandalf">
-        <br>
-        <p id="legoGandalfValue">120</p>
-      </div>
-      <div id="legoLegolas">
-        Legolas
-        <br>
-        <img class='img-thumbnail' src="./assets/images/legoLegolas.jpg" alt="Legolas">
-        <br>
-        <p id="legoLegolasValue">100</p>
-      </div>
-      <div id="legoSaruman">
-        Saruman
-        <br>
-        <img class='img-thumbnail' src="./assets/images/legoSaruman.jpg" alt="Saruman">
-        <br>
-        <p id="legoSarumanValue">150</p>
-      </div>
-      <div id="legoAzog">
-        Azog
-        <br>
-        <img class='img-thumbnail' src="./assets/images/legoAzog.jpg" alt="Azog">
-        <br>
-        <p id="legoAzogValue">180</p>
-      </div>
-    </div>
-    <h4>your character</h4>
-    <div id="character"></div>
-    <h4>enemies available to attack</h4>
-    <div id="enemies"></div>
-    <h4>fight section</h4>
-    <button id="attack">attack</button>
-    <div id="message"></div>
-    <h4>defender</h4>
-    <div id="defender"></div>
+  </header>
+  <div class="container" id="main-game-section">
+    <section class="main-section">
+      <div class="row">
+        <div class="row col-12 justify-content-center" id="characters-section">
+          <div class="row section-title">Select Your Character</div>
+        </div>
+        <div class="row col-4 " id="fighter-section">
+
+          <div class="row col-12 float-left" id="fighter"></div>
+
+        </div>
+        <div class="row col-4 justify-content-center">
+          <div class="row section-title col-12" id="fight-section">Fight Section - Click to Attack </div>
+
+          <div class="row col-12 justify-content-center">
+            <img class="btn" id="attack-button" src="assets/images/button.gif">
+          </div>
+          <div class="row jumbotron col-12" id="gameMessage"></div>
+
+        </div>
+        <div class="row col-4" id="action character-section">
+          <div class="row col-12 float-right" id="defender"></div>
+
+        </div>
+
+        <div class="row col-12" id="nextEnemy-section">
+          <div class="row col-12 section-title"></div>
+        </div>
+    </section>
+
+
   </div>
 
+  <body>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="./assets/javascript/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
 
-</body>
+  </body>
 
 </html>
