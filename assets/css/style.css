@@ -56,7 +56,8 @@ header {
   
 .character-name {
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    /* // find a different font for name display */
+    font-family: 'Open Sans', sans-serif; 
     font-weight: 700;  
     color: goldenrod;
 }
@@ -88,7 +89,7 @@ header {
 #attack-button{
     visibility: hidden;
     background: white;
-    color: goldenrod;	
+    color: white;	
     width: 80px;
     height: 80px;
     display: inline-block;
@@ -113,14 +114,16 @@ header {
 
 .target-enemy {
     background-color: white;
-    color: white;
+    /* change back if ugly */
+    color: black; 
 }
   
 
 /* available next enemy*/
 
 #nextEnemy-section img {
-    height: 200px;
+    /* just small enought to fit on main screen, DO NOT change */
+    height: 100px;
 }
   
  
