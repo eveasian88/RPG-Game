@@ -9,8 +9,8 @@ $(document).ready(function () {
       "attack": 18,
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/gandalf.jpg",
-      "fighterImgUrl": "assets/images/gandalf-fig.gif",
-      // "defenderImgUrl": "assets/images/gandalf-def.gif"
+      "fighterImgUrl": "assets/images/gandalf-left.gif",
+      "defenderImgUrl": "assets/images/gandalf-right.gif"
     },
 
     "legolas": {
@@ -19,8 +19,8 @@ $(document).ready(function () {
       "attack": 24,
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/legolas.jpg",
-      "fighterImgUrl": "assets/images/legolas-fig.gif",
-      // "defenderImgUrl": "assets/images/legolas-def.gif"
+      "fighterImgUrl": "assets/images/legolas-left.gif",
+      "defenderImgUrl": "assets/images/legolas-right.gif"
     },
 
     "saruman": {
@@ -29,8 +29,8 @@ $(document).ready(function () {
       "attack": 10,
       "enemyAttackBack": 10,
       "imageUrl": "assets/images/saruman.jpg",
-      "fighterImgUrl": "assets/images/saruman-fig.gif",
-      // "defenderImgUrl": "assets/images/saruman-def.gif"
+      "fighterImgUrl": "assets/images/saruman-left.gif",
+      "defenderImgUrl": "assets/images/saruman-right.gif"
     },
 
     "azog": {
@@ -39,8 +39,8 @@ $(document).ready(function () {
       "attack": 7,
       "enemyAttackBack": 5,
       "imageUrl": "assets/images/azog.jpg",
-      "fighterImgUrl": "assets/images/azog-fig.gif"
-      // "defenderImgUrl": "assets/images/azog-def.gif"
+      "fighterImgUrl": "assets/images/azog-left.gif",
+      "defenderImgUrl": "assets/images/azog-right.gif"
     }
   };
 
@@ -55,7 +55,7 @@ $(document).ready(function () {
 
   // define audio clips here
   var background = new Audio('') // record a sound clip from movie
-  
+
 
   function printAllinOne(character, renderArea, makeChar) {
     // character: obj, renderArea: class/id, makeChar: string
