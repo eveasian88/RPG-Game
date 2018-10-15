@@ -48,8 +48,8 @@ $(document).ready(function () {
   var currFighter;
   var currDefender;
   var nextEnemy = [];
-  var indexofSelChar;
-  var attackResult;
+  // var indexofSelChar;
+  // var attackResult;
   var turnCounter = 1;
   var killCount = 0;
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
 
         } else {
 
-          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
+          $(this).css({ 'color': 'white', 'background': 'none' }, 'slow');
           console.log(character.name + "   Health : " + percentage);
         }
       });
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
         } else {
           console.log(character.name + "   Health : " + percentage);
-          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
+          $(this).css({ 'color': 'white', 'background': 'none' }, 'slow');
         }
       });
 
@@ -105,8 +105,9 @@ $(document).ready(function () {
     // put all the elements together into the character div
     charDiv.append(charName).append(charImage).append(charHealth).append(powerBarDiv);
     $(renderArea).append(charDiv);
+
     // capitalizes the first letter in characters name
-    $('.character-name').css('textTransform', 'capitalize'); // not capitalizing first letter
+    $('.character-name').css('textTransform', 'capitalize'); // problem here, not capitalizing first letter
 
     if (makeChar == 'enemy') {
       $(charDiv).addClass('enemy');
@@ -159,7 +160,7 @@ $(document).ready(function () {
       $(document).on('click', '.enemy', function () {
         // select a combatant to fight
         name = ($(this).data('name'));
-        // if defernder area is empty
+        // if defender area is empty
         if ($('#defender').children().length === 0) {
           printCharacters(name, '#defender');
 
@@ -267,7 +268,7 @@ $(document).ready(function () {
         printCharacters(currFighter, 'enemyDamage');
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
-          restartGame("You have been defeated...GAME OVER!!!");
+          restartGame("You have been defeated!!! GAME OVER!!!");
 
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");

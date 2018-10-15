@@ -1,6 +1,7 @@
 /* body and background */
 body {
-    background-color: white;
+    background-color: black;
+    /* background-image: url("images/middleEarth.jpg") */
     font-family: Arial, Helvetica, sans-serif
   }
 
@@ -37,7 +38,7 @@ header {
 /* character rendering */
  
 .character {
-    width: 250px;
+    width: 200px;
 /* 
     margin: 0px 40px 0px 0px;
  */
@@ -55,8 +56,9 @@ header {
   
 .character-name {
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;  
+    color: goldenrod;
 }
 
 .character-health {
@@ -70,7 +72,7 @@ header {
     visibility: hidden;
 }
   
-  #gameMessage {
+#gameMessage {
     visibility: hidden;
     text-align: center;
 }
@@ -86,7 +88,7 @@ header {
 #attack-button{
     visibility: hidden;
     background: white;
-    color: white;	
+    color: goldenrod;	
     width: 80px;
     height: 80px;
     display: inline-block;
