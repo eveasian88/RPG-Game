@@ -1,7 +1,7 @@
 // global variables
 $(document).ready(function () {
 
-  // array of fighting characters
+  // array of playing characters
   var characters = {
     "gandalf": {
       "name": "gandalf",
@@ -129,7 +129,16 @@ function printCharacters(charObj, areaRender) {
     }
   }
 
+   //render player character
+   if (areaRender == '#fighter') {
+    $('#fighter').prepend("Your Character");       
+    printAllinOne(charObj, areaRender, '');
+    $('#attack-button').css('visibility', 'visible');
+    $('#fight-section').css('visibility', 'visible');
+    $('#gameMessage').css('visibility', 'visible');
+  }
 
   
+
 
 }); // end closing brackets from top
