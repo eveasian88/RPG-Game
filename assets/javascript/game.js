@@ -130,4 +130,6 @@ function printCharacters(charObj, areaRender) {
   }
 
 
+  
+
 }); // end closing brackets from top
