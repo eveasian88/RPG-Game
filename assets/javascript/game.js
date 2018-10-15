@@ -9,7 +9,8 @@ $(document).ready(function () {
       "attack": 18,
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/gandalf.jpg",
-      "fighterImgUrl": "assets/images/gandalf-mov.gif"
+      "fighterImgUrl": "assets/images/gandalf-fig.gif",
+      "defenderImgUrl": "assets/images/gandalf-def.gif"
     },
     "legolas": {
       "name": "legolas",
@@ -17,7 +18,8 @@ $(document).ready(function () {
       "attack": 24,
       "enemyAttackBack": 25,
       "imageUrl": "assets/images/legolas.jpg",
-      "fighterImgUrl": "assets/images/legolas-mov.gif"
+      "fighterImgUrl": "assets/images/legolas-fig.gif",
+      "defenderImgUrl" "assets/images/legolas-def.gif",
     },
     "saruman": {
       "name": "saruman",
@@ -25,7 +27,8 @@ $(document).ready(function () {
       "attack": 10,
       "enemyAttackBack": 10,
       "imageUrl": "assets/images/saruman.jpg",
-      "fighterImgUrl": "assets/images/saruman-mov.gif"
+      "fighterImgUrl": "assets/images/saruman-fig.gif",
+      "defenderImgUrl" "assets/images/saruman-def.gif"
     },
     "azog": {
       "name": "azog",
@@ -33,7 +36,8 @@ $(document).ready(function () {
       "attack": 7,
       "enemyAttackBack": 5,
       "imageUrl": "assets/images/azog.jpg",
-      "fighterImgUrl": "assets/images/azog-mov.gif"
+      "fighterImgUrl": "assets/images/azog-fig.gif"
+      "defenderImgUrl": "assets/images/azog-def.gif"
     }
   };
 
