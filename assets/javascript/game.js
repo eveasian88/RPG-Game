@@ -38,107 +38,247 @@ $(document).ready(function () {
   };
 
 
-var currFighter;
-var currDefender;
-var nextEnemy = [];
-var indexofSelChar;
-var attackResult;
-var turnCounter = 1;
-var killCount = 0;
+  var currFighter;
+  var currDefender;
+  var nextEnemy = [];
+  var indexofSelChar;
+  var attackResult;
+  var turnCounter = 1;
+  var killCount = 0;
 
 
-function  printAllinOne(character, renderArea, makeChar) {
-  // character: obj, renderArea: class/id, makeChar: string
-  var charDiv = $("<div class='character' data-name='" + character.name + "'>");
-  var charName = $("<div class='character-name'>").text(character.name);
-  if (renderArea == '#fighter') {
-    var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.fighterImgUrl); 
+  function printAllinOne(character, renderArea, makeChar) {
+    // character: obj, renderArea: class/id, makeChar: string
+    var charDiv = $("<div class='character' data-name='" + character.name + "'>");
+    var charName = $("<div class='character-name'>").text(character.name);
+    if (renderArea == '#fighter') {
+      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.fighterImgUrl);
 
-  var powerBarHolder = $("<div class='power-bar-holder'>");  
-  var powerBar = $("<div class='power-bar' id='bar1'>").each(function(){
-    var percentage = parseInt(character.health)/200*100;
-      if(percentage > 0){
+      var powerBarHolder = $("<div class='power-bar-holder'>");
+      var powerBar = $("<div class='power-bar' id='bar1'>").each(function () {
+        var percentage = parseInt(character.health) / 200 * 100;
+        if (percentage > 0) {
 
-        $(this).animate({'width':''+ percentage +'%'}, 'slow');
-        $(powerBarHolder).add(this);
-        console.log(character.name + "   Health : " + percentage);
-        
-      }else{
-       
-        $(this).css({'color':'black', 'background':'none'}, 'slow');
-        console.log(character.name + "   Health : " + percentage);
-      }
-    });
+          $(this).animate({ 'width': '' + percentage + '%' }, 'slow');
+          $(powerBarHolder).add(this);
+          console.log(character.name + "   Health : " + percentage);
 
-  } else if (renderArea == '#defender' ) {
-    var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl);
-    var powerBarHolder = $("<div class='power-bar-holder'>");  
-    var powerBar = $("<div class='power-bar' id='bar2'>").each(function(){
-     
-      var percentage = parseInt(character.health)/200*100;
-      if(percentage > 0){
+        } else {
 
-        $(this).animate({'width':''+ percentage +'%'}, 'slow');
-        console.log(character.name + "   Health : " + percentage);
-   
-      }else{
-        console.log(character.name + "   Health : " + percentage);
-        $(this).css({'color':'black', 'background':'none'}, 'slow');
-      }
-    });
+          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
+          console.log(character.name + "   Health : " + percentage);
+        }
+      });
 
-  } else {
-    var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.imageUrl);
-  }
-  
-  var charHealth = $("<div class='character-health'>").text(character.health);
-  var powerBarDiv = $(powerBarHolder).append(powerBar);
-  // put all the elements together into the character div.
- charDiv.append(charName).append(charImage).append(charHealth).append(powerBarDiv);
-  $(renderArea).append(charDiv);
-  // capitalizes the first letter in characters name
-  $('.character-name').css('textTransform', 'capitalize');
+    } else if (renderArea == '#defender') {
+      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl);
+      var powerBarHolder = $("<div class='power-bar-holder'>");
+      var powerBar = $("<div class='power-bar' id='bar2'>").each(function () {
 
-  if (makeChar == 'enemy') {
-    $(charDiv).addClass('enemy');
-  } else if (makeChar == 'defender') {
-    currDefender = character;
-    $(charDiv).addClass('target-enemy');
-  }
-};
+        var percentage = parseInt(character.health) / 200 * 100;
+        if (percentage > 0) {
 
-// create function to render game message to DOM
-function printMessage(message) {
-  var gameMesageSet = $("#gameMessage");
-  var newMessage = $("<div>").text(message);
-  gameMesageSet.append(newMessage);
+          $(this).animate({ 'width': '' + percentage + '%' }, 'slow');
+          console.log(character.name + "   Health : " + percentage);
 
-  if (message == 'clearMessage') {
-    gameMesageSet.text('');
-  }
-};
+        } else {
+          console.log(character.name + "   Health : " + percentage);
+          $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
+        }
+      });
 
-function printCharacters(charObj, areaRender) {
-  // render all characters on the first page
-  if (areaRender == '#characters-section') {
-    $(areaRender).empty();
-
-    // for ....in statement iterates over the enumerable properties of character array
-    for (var property in charObj) {
-      printAllinOne(charObj[property], areaRender, '');
+    } else {
+      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.imageUrl);
     }
-  }
 
-   //render player character
-   if (areaRender == '#fighter') {
-    $('#fighter').prepend("Your Character");       
-    printAllinOne(charObj, areaRender, '');
-    $('#attack-button').css('visibility', 'visible');
-    $('#fight-section').css('visibility', 'visible');
-    $('#gameMessage').css('visibility', 'visible');
-  }
+    var charHealth = $("<div class='character-health'>").text(character.health);
+    var powerBarDiv = $(powerBarHolder).append(powerBar);
+    // put all the elements together into the character div.
+    charDiv.append(charName).append(charImage).append(charHealth).append(powerBarDiv);
+    $(renderArea).append(charDiv);
+    // capitalizes the first letter in characters name
+    $('.character-name').css('textTransform', 'capitalize');
 
-  
+    if (makeChar == 'enemy') {
+      $(charDiv).addClass('enemy');
+    } else if (makeChar == 'defender') {
+      currDefender = character;
+      $(charDiv).addClass('target-enemy');
+    }
+  };
+
+  // create function to render game message to DOM
+  function printMessage(message) {
+    var gameMesageSet = $("#gameMessage");
+    var newMessage = $("<div>").text(message);
+    gameMesageSet.append(newMessage);
+
+    if (message == 'clearMessage') {
+      gameMesageSet.text('');
+    }
+  };
+
+  function printCharacters(charObj, areaRender) {
+    // render all characters on the first page
+    if (areaRender == '#characters-section') {
+      $(areaRender).empty();
+
+      // for ....in statement iterates over the enumerable properties of character array
+      for (var property in charObj) {
+        printAllinOne(charObj[property], areaRender, '');
+      }
+    }
+
+    //render player character
+    if (areaRender == '#fighter') {
+      $('#fighter').prepend("Your Character");
+      printAllinOne(charObj, areaRender, '');
+      $('#attack-button').css('visibility', 'visible');
+      $('#fight-section').css('visibility', 'visible');
+      $('#gameMessage').css('visibility', 'visible');
+    }
+
+    // print the next enemy
+    if (areaRender == '#nextEnemy-section') {
+      $('#nextEnemy-section').prepend("Enemies Available To Attack");
+      for (var i = 0; i < charObj.length; i++) {
+
+        printAllinOne(charObj[i], areaRender, 'enemy');
+      }
+      // render one enemy to defender area
+      $(document).on('click', '.enemy', function () {
+        //select an combatant to fight
+        name = ($(this).data('name'));
+        //if defernder area is empty
+        if ($('#defender').children().length === 0) {
+          printCharacters(name, '#defender');
+
+          $(this).hide();
+          printMessage("clearMessage");
+        }
+      });
+    }
+    // render defender
+    if (areaRender == '#defender') {
+      $(areaRender).empty();
+
+      for (var i = 0; i < nextEnemy.length; i++) {
+        //add enemy to defender area
+        if (nextEnemy[i].name == charObj) {
+          $('#defender').append("Defender")
+          printAllinOne(nextEnemy[i], areaRender, 'defender');
+        }
+      }
+    }
+    // re-render defender when attacked
+    if (areaRender == 'playerDamage') {
+      $('#defender').empty();
+      $('#defender').append("Defender")
+      printAllinOne(charObj, '#defender', 'defender');
+    }
+    // re-render player character when attacked
+    if (areaRender == 'enemyDamage') {
+      $('#fighter').empty();
+      $('#fighter').prepend("Your Character");
+      printAllinOne(charObj, '#fighter', '');
+    }
+    // render defeated enemy
+    if (areaRender == 'enemyDefeated') {
+      $('#defender').empty();
+      var gameStateMessage = "You have defated " + charObj.name + ", you can choose to fight another enemy.";
+      printMessage(gameStateMessage);
+    }
+  };
+
+  // restarts the game - renders a reset button
+  function restartGame(inputEndGame) {
+    // when 'restart' button is clicked, reloads the page.
+    var restart = $('<button class="btn btn-danger">Restart</button>').click(function () {
+      location.reload();
+
+    });
+    var gameState = $("<div>").text(inputEndGame);
+    $("#gameMessage").append(gameState);
+    $("#gameMessage").after(restart);
+  };
 
 
-}); // end closing brackets from top
+
+  // main program
+  // this is to render all characters for user to choose their computer
+  printCharacters(characters, '#characters-section');
+
+  $(document).on('click', '.character', function () {
+    name = $(this).data('name');
+
+    // only when no player char has been selected (load the next enemy array on the first time)
+    if (!currFighter) {
+
+      currFighter = characters[name];
+
+      // for ....in statement iterates over the enumerable properties of character array
+      for (var property in characters) {
+        if (property != name) {
+          nextEnemy.push(characters[property]);
+        }
+      }
+
+      $("#characters-section").hide();
+      printCharacters(currFighter, '#fighter');
+      // this is to render all characters for user to choose to fight against
+      printCharacters(nextEnemy, '#nextEnemy-section');
+    }
+  });
+
+
+  // load the following function when attack button on click
+  $("#attack-button").on("click", function () {
+    // if defender area has enemy
+    if ($('#defender').children().length !== 0) {
+      // defender state change
+      var attackMessage = "You attacked " + currDefender.name + " for " + (currFighter.attack * turnCounter) + " damage.";
+      printMessage("clearMessage");
+
+      // calculate the health points for defender
+      currDefender.health = currDefender.health - (currFighter.attack * turnCounter);
+
+      // win conditions
+      if (currDefender.health > 0) {
+        // enemy not dead keep playing
+        printCharacters(currDefender, 'playerDamage');
+        // player state change
+        var counterAttackMessage = currDefender.name + " attacked you back for " + currDefender.enemyAttackBack + " damage.";
+        printMessage(attackMessage);
+        printMessage(counterAttackMessage);
+
+        // calculate the health points for fighter  
+        currFighter.health = currFighter.health - currDefender.enemyAttackBack;
+        printCharacters(currFighter, 'enemyDamage');
+        if (currFighter.health <= 0) {
+          printMessage("clearMessage");
+          restartGame("You have been defeated...GAME OVER!!!");
+          gameOver.play();
+          $("#attack-button").unbind("click");
+          $('#nextEnemy-section').text(" ");
+
+
+        }
+      } else {
+        printCharacters(currDefender, 'enemyDefeated');
+        killCount++;
+        if (killCount >= 3) {
+          printMessage("clearMessage");
+          restartGame("You Won!!!! GAME OVER!!!");
+
+          $('#nextEnemy-section').text(" ");
+        }
+      }
+      turnCounter++;
+    } else {
+      printMessage("clearMessage");
+      printMessage("No enemy here.");
+
+    }
+  });
+
+});     
