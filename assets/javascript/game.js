@@ -1,6 +1,6 @@
 // global variables
 $(document).ready(function () {
- 
+  
   // array of playing characters
   var characters = {
     "gandalf": {
@@ -58,7 +58,7 @@ $(document).ready(function () {
   var playerSound = new Audio ('assets/audio/playerSound.m4a');
   var themeMusic = new Audio('assets/audio/themeMusic.m4a');
 
-
+  themeMusic.play();
 
   function printAllinOne(character, renderArea, makeChar) {
     // character: obj, renderArea: class/id, makeChar: string
@@ -149,7 +149,7 @@ $(document).ready(function () {
 
     //render player character
     if (areaRender == '#fighter') {
-      $('#fighter').prepend("Your Character");
+      $('#fighter').prepend("Fighter");
       printAllinOne(charObj, areaRender, '');
       $('#attack-button').css('visibility', 'visible');
       $('#fight-section').css('visibility', 'visible');
@@ -199,7 +199,7 @@ $(document).ready(function () {
     // re-render player character when attacked
     if (areaRender == 'enemyDamage') {
       $('#fighter').empty();
-      $('#fighter').prepend("Your Character");
+      $('#fighter').prepend("Fighter");
       printAllinOne(charObj, '#fighter', '');
     }
     // render defeated enemy
@@ -229,7 +229,7 @@ $(document).ready(function () {
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
   // play lego LOTR background music
-  themeMusic.play(); // check why music doesn't play in this location
+  // themeMusic.play(); // check why music doesn't play in this location
 
   $(document).on('click', '.character', function () {
     // themeMusic.play(); // plays theme music at same time that player fight, need to fix
@@ -294,7 +294,7 @@ $(document).ready(function () {
         if (killCount >= 3) {
           printMessage("clearMessage");
           restartGame("You Won!!! GAME OVER!!!");
-          lostSound.play();
+          gameOver.play();
           $('#nextEnemy-section').text(" ");
         }
       }
