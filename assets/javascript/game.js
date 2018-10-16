@@ -1,6 +1,6 @@
 // global variables
 $(document).ready(function () {
-
+ 
   // array of playing characters
   var characters = {
     "gandalf": {
@@ -48,14 +48,16 @@ $(document).ready(function () {
   var currFighter;
   var currDefender;
   var nextEnemy = [];
-  // var indexofSelChar;
-  // var attackResult;
   var turnCounter = 1;
   var killCount = 0;
 
+
   // define audio clips here
-  var gameOver = new Audio ("assets/audio/gameOver.ma4")
-  var background = new Audio('') 
+  var gameOver = new Audio ('assets/audio/gameOver.m4a');
+  var lostSound = new Audio ('assets/audio/lostSound.m4a');
+  var attackSound = new Audio ('assets/audio/attackSound.m4a');
+  var playerSound = new Audio ('assets/audio/playerSound.m4a');
+  var themeMusic = new Audio('assets/audio/themeMusic.m4a');
 
 
   function printAllinOne(character, renderArea, makeChar) {
@@ -182,7 +184,7 @@ $(document).ready(function () {
         if (nextEnemy[i].name == charObj) {
           $('#defender').append("Defender")
           printAllinOne(nextEnemy[i], areaRender, 'defender');
-          // playerSound.play(): // defined audio above, is placed here
+          playerSound.play(); 
         }
       }
     }
@@ -191,7 +193,7 @@ $(document).ready(function () {
       $('#defender').empty();
       $('#defender').append("Defender")
       printAllinOne(charObj, '#defender', 'defender');
-      // if time add audio here
+      attackSound.play();
     }
     // re-render player character when attacked
     if (areaRender == 'enemyDamage') {
@@ -204,6 +206,7 @@ $(document).ready(function () {
       $('#defender').empty();
       var gameStateMessage = "you have defeated " + charObj.name + ", choose another enemy to fight.";
       printMessage(gameStateMessage);
+      lostSound.play();
     }
   };
 
@@ -224,12 +227,13 @@ $(document).ready(function () {
   // main program
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
-  // play background music
-  background.play();
+  // play lego LOTR background music
+  // themeMusic.play();
 
   $(document).on('click', '.character', function () {
+    themeMusic.play(); // plays theme music at same time that player fight, need to fix
     name = $(this).data('name');
-
+    
     // only when no player char has been selected (load the next enemy array on the first time)
     if (!currFighter) {
 
@@ -246,7 +250,7 @@ $(document).ready(function () {
       printCharacters(currFighter, '#fighter');
       // this is to render all characters for user to choose to fight against
       printCharacters(nextEnemy, '#nextEnemy-section');
-      // add audio here if time
+      playerSound.play();
     }
   });
 
@@ -276,7 +280,7 @@ $(document).ready(function () {
         printCharacters(currFighter, 'enemyDamage');
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
-          restartGame("you have been defeated!!! GAME OVER!!!");
+          restartGame("You have been defeated!!! GAME OVER!!!");
           // gameOver.play(); // add audio if time
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");
@@ -288,8 +292,8 @@ $(document).ready(function () {
         killCount++;
         if (killCount >= 3) {
           printMessage("clearMessage");
-          restartGame("you won!!! GAME OVER!!!");
-
+          restartGame("You Won!!! GAME OVER!!!");
+          gameOver.play();
           $('#nextEnemy-section').text(" ");
         }
       }
@@ -297,8 +301,8 @@ $(document).ready(function () {
     } else {
       printMessage("clearMessage");
       printMessage("there's no enemy here.");
-      // audio to be put here 
+      playerSound.play();
     }
   });
-
+  
 });     
