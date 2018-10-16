@@ -51,13 +51,13 @@ $(document).ready(function () {
   var turnCounter = 1;
   var killCount = 0;
 
-
   // define audio clips here
   var gameOver = new Audio ('assets/audio/gameOver.m4a');
   var lostSound = new Audio ('assets/audio/lostSound.m4a');
   var attackSound = new Audio ('assets/audio/attackSound.m4a');
   var playerSound = new Audio ('assets/audio/playerSound.m4a');
   var themeMusic = new Audio('assets/audio/themeMusic.m4a');
+
 
 
   function printAllinOne(character, renderArea, makeChar) {
@@ -81,10 +81,11 @@ $(document).ready(function () {
           $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
           console.log(character.name + "   Health : " + percentage);
         }
+
       });
 
     } else if (renderArea == '#defender') {
-      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl); // check why defender isnt showing up
+      var charImage = $("<img alt='image' class='character-image img-fluid rounded'>").attr("src", character.defenderImgUrl);
       var powerBarHolder = $("<div class='power-bar-holder'>");
       var powerBar = $("<div class='power-bar' id='bar2'>").each(function () {
 
@@ -99,6 +100,7 @@ $(document).ready(function () {
           console.log(character.name + "   Health : " + percentage);
           $(this).css({ 'color': 'black', 'background': 'none' }, 'slow');
         }
+
       });
 
     } else {
@@ -117,8 +119,7 @@ $(document).ready(function () {
 
     if (makeChar == 'enemy') {
       $(charDiv).addClass('enemy');
-    }
-    else if (makeChar == 'defender') {
+    } else if (makeChar == 'defender') {
       currDefender = character;
       $(charDiv).addClass('target-enemy');
     }
@@ -228,7 +229,7 @@ $(document).ready(function () {
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
   // play lego LOTR background music
-  themeMusic.play(); // music doesn't play in this location
+  themeMusic.play(); // check why music doesn't play in this location
 
   $(document).on('click', '.character', function () {
     // themeMusic.play(); // plays theme music at same time that player fight, need to fix
@@ -281,7 +282,7 @@ $(document).ready(function () {
         if (currFighter.health <= 0) {
           printMessage("clearMessage");
           restartGame("You have been defeated!!! GAME OVER!!!");
-          // gameOver.play(); // add audio if time
+          gameOver.play();
           $("#attack-button").unbind("click");
           $('#nextEnemy-section').text(" ");
         }
@@ -293,7 +294,7 @@ $(document).ready(function () {
         if (killCount >= 3) {
           printMessage("clearMessage");
           restartGame("You Won!!! GAME OVER!!!");
-          gameOver.play();
+          themeMusic.play();
           $('#nextEnemy-section').text(" ");
         }
       }
@@ -301,7 +302,7 @@ $(document).ready(function () {
     } else {
       printMessage("clearMessage");
       printMessage("there's no enemy here.");
-      playerSound.play();
+      lostSound.play();
     }
   });
   

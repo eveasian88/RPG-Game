@@ -2,15 +2,16 @@
 body {
     background-color: white;
     /* background-image: url("images/middleEarth.jpg") */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Cinzel', serif;
+    /* font-weight: 500; */
     /* width: 100vh; */
     /* height: 100vh; */
   }
 
 header {
-    font-size: 20px;
+    font-size: 50px;
     text-align: center;
-    /* padding: 10px; */
+    padding: 20px;
 }
 
 /* .src {
@@ -45,9 +46,7 @@ header {
 /* character rendering */
 .character {
     width: 200px;
-/* 
-    margin: 0px 40px 0px 0px;
- */
+/* margin: 0px 40px 0px 0px; */
     cursor: pointer;
     display: inline-block;
 }
@@ -63,7 +62,7 @@ header {
 .character-name {
     text-align: center;
     font-family: 'Charmonman', cursive;
-    font-size: 25px;
+    font-size: 25px; 
     font-weight: 700;  
     color: goldenrod;
 }
@@ -95,8 +94,8 @@ header {
     visibility: hidden;
     background: white;
     color: white;	
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     display: inline-block;
 }
   
@@ -146,7 +145,7 @@ header {
   }
   
 
-/* power Bar */
+/* power bar */
 .power-bar-holder{
     width: 100%;
     border: 1px solid #ccc;
@@ -172,10 +171,10 @@ header {
 
 /* media queries so people can play on phones, etc... */
 @media only screen and (max-device-width: 768px) {
-    .src {
+    /* .src {
         height: 150px;
         width: 150px;
-    }
+    } */
     .character {
         display: block;
         height: 150px;    
@@ -238,7 +237,6 @@ header {
       #defender-name {
         font-size: 0.9em;
        }
-  
 } 
   
 /* lg */ 
