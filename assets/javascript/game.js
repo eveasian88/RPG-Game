@@ -294,7 +294,7 @@ $(document).ready(function () {
         if (killCount >= 3) {
           printMessage("clearMessage");
           restartGame("You Won!!! GAME OVER!!!");
-          themeMusic.play();
+          lostSound.play();
           $('#nextEnemy-section').text(" ");
         }
       }

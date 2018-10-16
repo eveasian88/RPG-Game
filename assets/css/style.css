@@ -15,7 +15,7 @@ header {
 }
 
 /* .src {
-    height: 200px; // check this again
+    height: 200px; // messes with the bottom 
     width: 200px;
 } */
 
@@ -136,8 +136,8 @@ header {
 }
 
 #defender-image {
-    padding: 0px 16px;
-    margin: 3px 0px;
+    padding: 0px 20px;
+    margin: 20px 0px;
 }
   
 #defender-health {
