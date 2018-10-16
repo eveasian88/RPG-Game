@@ -4,19 +4,19 @@ body {
     /* background-image: url("images/middleEarth.jpg") */
     font-family: Arial, Helvetica, sans-serif;
     /* width: 100vh; */
-    height: 100vh;
+    /* height: 100vh; */
   }
 
 header {
-    font-size: 50px;
+    font-size: 20px;
     text-align: center;
-    padding: 20px;
+    /* padding: 10px; */
 }
 
-.src {
-    height: 200px;
+/* .src {
+    height: 200px; // check this again
     width: 200px;
-}
+} */
 
 .characterWrapper {
     width: 75%;
@@ -26,7 +26,7 @@ header {
   
 #gameMessage {
     text-align: center;
-    font-size: 15px;
+    font-size: 14px;
 }
   
 #choose-enemy-button {
@@ -191,10 +191,10 @@ header {
 @media screen and (max-width: 767px) { 
     body { font-size: 0.7em; }
     
-    .src {
+    /* .src {
         height: 10px;
         width: 10px;
-    }
+    } */
     #gameMessage {
       font-size: 0.7em;
       }
@@ -208,10 +208,10 @@ header {
 /* sm */ 
 @media screen and (min-width: 768px) { 
     body { font-size: 0.8em; } 
-    .src {
+    /* .src {
         height: 30px;
         width: 30px;
-    }
+    } */
     #gameMessage {
       font-size: 0.7em;
       }
@@ -226,10 +226,10 @@ header {
 /* md */ 
 @media screen and (min-width: 992px) { 
     body { font-size: 0.9em; } 
-    .src {
+    /* .src {
         height: 40px;
         width: 40px;
-    }
+    } */
     #gameMessage {
       font-size: 0.8em;
       }
@@ -244,10 +244,10 @@ header {
 /* lg */ 
 @media screen and (min-width: 1200px) { 
     body { font-size: 1em; } 
-    .src {
+    /* .src {
         height: 80px;
         width: 80px;
-    }
+    } */
     #gameMessage {
       font-size: 0.9em;
       }

@@ -54,7 +54,8 @@ $(document).ready(function () {
   var killCount = 0;
 
   // define audio clips here
-  var background = new Audio('') // record a sound clip from movie
+  var gameOver = new Audio ("assets/audio/gameOver.ma4")
+  var background = new Audio('') 
 
 
   function printAllinOne(character, renderArea, makeChar) {
