@@ -228,10 +228,10 @@ $(document).ready(function () {
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
   // play lego LOTR background music
-  // themeMusic.play();
+  themeMusic.play(); // music doesn't play in this location
 
   $(document).on('click', '.character', function () {
-    themeMusic.play(); // plays theme music at same time that player fight, need to fix
+    // themeMusic.play(); // plays theme music at same time that player fight, need to fix
     name = $(this).data('name');
     
     // only when no player char has been selected (load the next enemy array on the first time)
