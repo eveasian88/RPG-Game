@@ -4,8 +4,6 @@ body {
     /* background-image: url("../images/middleEarth.jpg") */
     font-family: 'Cinzel', serif;
     /* font-weight: 500; */
-    /* width: 100vh; */
-    /* height: 100vh; */
   }
 
 header {
@@ -62,7 +60,7 @@ header {
 .character-name {
     text-align: center;
     font-family: 'Charmonman', cursive;
-    font-size: 25px; 
+    /* font-size: 25px;  */
     font-weight: 700;  
     color: goldenrod;
 }
