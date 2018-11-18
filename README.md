@@ -3,5 +3,3 @@ This is a Lego themed RPG game for a single player. The player selects a LOTR ch
 
 ## Technologies Utilized 
 HTML5 • Bootstrap4 • CSS3 • JavaScript • jQuery
-
-https://eveasian88.github.io/RPG-Game/
