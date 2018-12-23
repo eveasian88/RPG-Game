@@ -1,6 +1,6 @@
 // global variables
 $(document).ready(function () {
-  
+
   // array of playing characters
   var characters = {
     "gandalf": {
@@ -52,13 +52,13 @@ $(document).ready(function () {
   var killCount = 0;
 
   // define audio clips here
-  var gameOver = new Audio ('assets/audio/gameOver.m4a');
-  var lostSound = new Audio ('assets/audio/lostSound.m4a');
-  var attackSound = new Audio ('assets/audio/attackSound.m4a');
-  var playerSound = new Audio ('assets/audio/playerSound.m4a');
+  var gameOver = new Audio('assets/audio/gameOver.m4a');
+  var lostSound = new Audio('assets/audio/lostSound.m4a');
+  var attackSound = new Audio('assets/audio/attackSound.m4a');
+  var playerSound = new Audio('assets/audio/playerSound.m4a');
   var themeMusic = new Audio('assets/audio/themeMusic.m4a');
 
- 
+
 
   function printAllinOne(character, renderArea, makeChar) {
     // character: obj, renderArea: class/id, makeChar: string
@@ -185,7 +185,7 @@ $(document).ready(function () {
         if (nextEnemy[i].name == charObj) {
           $('#defender').append("Defender")
           printAllinOne(nextEnemy[i], areaRender, 'defender');
-          playerSound.play(); 
+          playerSound.play();
         }
       }
     }
@@ -228,13 +228,12 @@ $(document).ready(function () {
   // main program
   // this is to render all characters for user to choose their computer
   printCharacters(characters, '#characters-section');
-  // play lego LOTR background music
-  themeMusic.play(); // check why music doesn't play in this location
+
 
   $(document).on('click', '.character', function () {
     // themeMusic.play(); // plays theme music at same time that player fight, need to fix
     name = $(this).data('name');
-    
+
     // only when no player char has been selected (load the next enemy array on the first time)
     if (!currFighter) {
 
@@ -296,6 +295,8 @@ $(document).ready(function () {
           restartGame("You Won!!! GAME OVER!!!");
           gameOver.play();
           $('#nextEnemy-section').text(" ");
+          // play lego LOTR background music
+          themeMusic.play();
         }
       }
       turnCounter++;
@@ -305,5 +306,5 @@ $(document).ready(function () {
       lostSound.play();
     }
   });
-  
+
 });     
